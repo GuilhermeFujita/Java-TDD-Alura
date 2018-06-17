@@ -58,5 +58,17 @@ public class AvaliadorTest {
 		Assert.assertEquals(400, leiloeiro.getMedia(), 0.0001);
 	}
 	
-	
+	@Test
+	public void deveEntenderLeilaoComApenasUmLance() {
+		Usuario joao = new Usuario("João");
+		Leilao leilao = new Leilao("Playstation 3 novo");
+		
+		leilao.propoe(new Lance(joao, 1000.0));
+		
+		Avaliador leiloeiro = new Avaliador();
+		leiloeiro.avalia(leilao);
+		
+		Assert.assertEquals(1000.0, leiloeiro.getMaiorLance(), 0.00001);
+		Assert.assertEquals(1000.0, leiloeiro.getMenorLance(), 0.00001);
+	}
 }
