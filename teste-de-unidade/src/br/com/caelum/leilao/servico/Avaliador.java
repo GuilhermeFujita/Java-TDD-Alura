@@ -10,7 +10,7 @@ public class Avaliador {
 	public void avalia(Leilao leilao) {
 		for(Lance lance: leilao.getLances()) {
 			if(lance.getValor() > maiorDeTodos) {
-				
+				maiorDeTodos = lance.getValor();
 			}
 		}
 	}
